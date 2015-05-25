@@ -1,0 +1,18 @@
+function kodDostuBildirim(baslik,icerik,link,resim) {
+if(resim == undefined){var ikon = 'https://lh3.googleusercontent.com/-Gmvh8vTf_lo/VWNHDaUBmTI/AAAAAAAAA0A/LkJPFwK3kjs/s115/telgratv-115.png';}
+else{var ikon = resim;}
+  if (!Notification) {alert('TarayÄ±cÄ±nÄ±z bildirimleri desteklemiyor.'); return;  }
+
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+
+  var notification = new Notification(baslik, {
+    icon: ikon,
+    body: icerik,
+  });
+
+
+  notification.onclick = function () {
+    window.open(link);
+  }
+}
